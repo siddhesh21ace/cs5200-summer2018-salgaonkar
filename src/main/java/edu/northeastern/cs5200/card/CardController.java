@@ -19,8 +19,8 @@ public class CardController {
     }
 
     @GetMapping(value = "/api/card/{cardId}")
-    public ResponseEntity<String> findCardById(@PathVariable("cardId") String cardId) {
-        return cardService.findCardById(cardId);
+    public ResponseEntity<String> fetchCardById(@PathVariable("cardId") String cardId) {
+        return cardService.fetchCardById(cardId);
     }
 
 

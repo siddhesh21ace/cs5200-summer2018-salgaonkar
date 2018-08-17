@@ -1,0 +1,69 @@
+<div ng-include="'views/includes/header.view.client.html'"></div>
+
+<div class="container-fluid">
+    <h1>User Management</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input ng-model="model.user.firstName" class="form-control" type="text" placeholder="First Name">
+                </td>
+                <td>
+                    <input ng-model="model.user.lastName" class="form-control" type="text" placeholder="Last Name">
+                </td>
+                <td>
+                    <input ng-model="model.user.username" class="form-control" type="text" placeholder="Username">
+                </td>
+                <td>
+                    <input ng-model="model.user.password" class="form-control" type="password" placeholder="Password">
+                </td>
+                <td>
+                    <input ng-model="model.user.email" class="form-control" type="email" placeholder="Email">
+                </td>
+                <td>
+                    <input ng-model="model.user.roles" class="form-control" type="text" placeholder="Roles">
+                </td>
+                <td>
+                    <button ng-click="model.createUser(model.user)" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </td>
+                <td>
+                    <button ng-click="model.updateUser(model.user)" class="btn btn-success">
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </button>
+                </td>
+            </tr>
+            <tr ng-repeat="user in model.users">
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.username}}</td>
+                <td>&nbsp;</td>
+                <td>{{user.email}}</td>
+                <td>{{user.roles}}</td>
+                <td>
+                    <button ng-click="model.deleteUser(user._id)" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+                <td>
+                    <button ng-click="model.selectUser(user)" class="btn btn-warning">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

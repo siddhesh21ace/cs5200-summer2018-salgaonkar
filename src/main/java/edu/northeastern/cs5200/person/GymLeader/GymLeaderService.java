@@ -1,5 +1,6 @@
 package edu.northeastern.cs5200.person.GymLeader;
 
+import edu.northeastern.cs5200.battle.Battle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,15 +24,12 @@ public class GymLeaderService {
         return (List<GymLeader>) gymLeaderRepository.findAll();
     }
 
-    GymLeader findGymLeaderById(int gymLeaderId) throws Exception {
+    GymLeader findGymLeaderById(Long gymLeaderId) {
         Optional<GymLeader> data = gymLeaderRepository.findById(gymLeaderId);
-        if (data.isPresent()) {
-            return data.get();
-        }
-        throw new Exception("No gymLeader found with id = " + gymLeaderId);
+        return data.orElse(null);
     }
 
-    GymLeader updateGymLeader(int gymLeaderId, GymLeader newGymLeader) throws Exception {
+    GymLeader updateGymLeader(Long gymLeaderId, GymLeader newGymLeader) throws Exception {
         Optional<GymLeader> data = gymLeaderRepository.findById(gymLeaderId);
         if (data.isPresent()) {
             GymLeader gymLeader = data.get();
@@ -45,7 +43,12 @@ public class GymLeaderService {
         throw new Exception("No gymLeader found with id = " + gymLeaderId);
     }
 
-    void deleteGymLeader(int id) {
+    void deleteGymLeader(Long id) {
         gymLeaderRepository.deleteById(id);
+    }
+
+    List<Battle> findBattles(Long gymLeaderId) {
+        GymLeader gymLeader = findGymLeaderById(gymLeaderId);
+        return gymLeader.getBattles();
     }
 }

@@ -14,7 +14,7 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-    @PostMapping("/api/Admin")
+    @PostMapping("/api/admin")
     public Admin createAdmin(@RequestBody Admin admin) {
         return adminService.createAdmin(admin);
     }
@@ -25,18 +25,18 @@ public class AdminController {
     }
 
     @GetMapping("/api/admin/{adminId}")
-    public Admin findAdminById(@PathVariable("adminId") int adminId) throws Exception {
+    public Admin findAdminById(@PathVariable("adminId") Long adminId) throws Exception {
         return adminService.findAdminById(adminId);
     }
 
     @PutMapping("/api/admin/{adminId}")
-    public Admin updateAdmin(@PathVariable("adminId") int adminId,
+    public Admin updateAdmin(@PathVariable("adminId") Long adminId,
                              @RequestBody Admin newAdmin) throws Exception {
         return adminService.updateAdmin(adminId, newAdmin);
     }
 
     @DeleteMapping("/api/admin/{adminId}")
-    public void deleteAdmin(@PathVariable("adminId") int id) {
+    public void deleteAdmin(@PathVariable("adminId") Long id) {
         adminService.deleteAdmin(id);
     }
 }

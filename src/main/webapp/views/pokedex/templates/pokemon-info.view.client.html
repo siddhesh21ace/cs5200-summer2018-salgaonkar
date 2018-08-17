@@ -1,0 +1,107 @@
+<div ng-include="'views/includes/header.view.client.html'"></div>
+
+<div class="container">
+    <div id="loading">
+        <div id="pokeball" style="width: 200px;">
+            <img src="../../../img/pichu.gif" alt="Pokeball">
+            <h3>Pokemon Arriving......</h3>
+        </div>
+    </div>
+    <div class="pokeName">
+        <h1 class="text-capitalize text-center">{{model.pokemon.metaPokemon.name}} # {{model.pokemon.metaPokemon.id}}</h1>
+    </div>
+    <hr>
+    <div class="upper">
+        <div class="col-md-4 pokemon-info-image">
+            <img ng-src="{{model.pokemon.img}}" class="img-responsive"/>
+        </div>
+
+        <div class="col-md-8">
+            <h4 class="description">
+                {{model.pokemon.species.description}}
+            </h4>
+            <div class="physicalAttribtues">
+                <h3>Physical Attributes</h3>
+                <ul>
+                    <li>Height : {{model.pokemon.metaPokemon.height}}</li>
+                    <li>Weight : {{model.pokemon.metaPokemon.weight}}</li>
+                    <li>Base Experience : {{model.pokemon.metaPokemon.base_experience}}</li>
+                    <li>Genus : {{model.pokemon.species.genus}}</li>
+                    <li>Habitat : {{model.pokemon.species.habitat}}</li>
+                    <li>Shape : {{model.pokemon.species.shape}}</li>
+                    <li>Abilities :
+                        <ul ng-repeat="ability in model.pokemon.abilities">
+                            <li class="like">
+                                <a class="abilities" title="{{ability.description}}">{{ability.name}}</a>
+                                <span class="tooltipabilities">{{ability.description}}</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="type tagcloud">
+                <h3>Types</h3>
+                <ul class="list-group">
+                    <li class="list-group-item"
+                        ng-repeat="type in model.pokemon.types">
+                        <a href="#" class="{{model.getColorClass(type)}}">{{type}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="weakness col-md-12">
+        <h3>Weaknesses</h3>
+        <div class="tagcloud">
+            <ul>
+                <li ng-repeat="weakness in model.pokemon.weaknesses track by $index">
+                    <a href="#" class="{{model.getColorClass(weakness)}}">
+                        {{weakness}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="stats col-md-12">
+        <h3>Stats</h3>
+        <div class="progressContainer" ng-repeat="stat in model.pokemon.stats">
+            <h6 class="col-md-3" style="text-transform: capitalize;margin:0;">{{stat.name}} ({{stat.baseStats}})</h6>
+            <div class="progress">
+                <div class="progress-bar progress-bar-info col-md-9" role="progressbar"
+                     aria-valuemin="0" aria-valuemax="{{stat.baseStats}}"
+                     style="width:{{model.getIndicator(stat.baseStats)}}%"
+                     aria-valuenow="{{stat.baseStats}}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="moves col-md-12">
+        <h3>Moves</h3>
+        <div class="tagcloud">
+            <ul>
+                <li ng-repeat="move in model.pokemon.moves">
+                    <a href="#" class="moves">{{move}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="evolution col-md-12">
+        <h3>Evolution</h3>
+        <div class="evolution-pane">
+            <figure ng-repeat="evo in model.pokemon.species.evoChains" class="col-md-3 pokemon-thumb"
+                    ng-click="model.getMoreInfo(evo.id)">
+                <img ng-src="{{evo.img}}"
+                     class="img-responsive pokemon-thumb-img"
+                     style="padding:16px"/>
+                <figcaption>
+                    <div class="text-center pokemon-thumb-name">{{evo.name}}#{{evo.id}}</div>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,74 @@
+<!--suppress ALL -->
+<div ng-include="'views/includes/header.view.client.html'"></div>
+
+<div class="wrapper container register-page">
+    <form name="registerForm" novalidate>
+        <h1 class="text-center">Create Trainer Account</h1>
+        <hr>
+        <div class="form-group">
+            <label for="username" class="sr-only">Username</label>
+            <input ng-model="model.user.username" type="text"
+                   class="form-control" id="username" name="username"
+                   placeholder="Username" required/>
+            <div ng-show="registerForm.$submitted && registerForm.username.$invalid"
+                 class="error">Username is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="sr-only">Password</label>
+            <input ng-model="model.user.password" type="password"
+                   class="form-control" id="password" name="password"
+                   placeholder="Password" required/>
+            <div ng-show="registerForm.$submitted && registerForm.password.$invalid"
+                 class="error">Password is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="conf-password" class="sr-only">Confirm Password</label>
+            <input ng-model="model.user.confPassword" type="password" class="form-control" id="conf-password"
+                   name="conf-password" placeholder="Confirm Password" required/>
+            <div ng-show="registerForm.$submitted && registerForm['conf-password'].$invalid"
+                 class="error">Conf. password is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="sr-only">Email</label>
+            <input ng-model="model.user.email" type="email"
+                   class="form-control" id="email" name="email"
+                   placeholder="Email"/>
+        </div>
+        <div class="form-group">
+            <label for="first-name" class="sr-only">First Name</label>
+            <input ng-model="model.user.firstName" type="text"
+                   class="form-control" id="first-name" name="first-name"
+                   placeholder="First Name"/>
+        </div>
+        <div class="form-group">
+            <label for="last-name" class="sr-only">Last Name</label>
+            <input ng-model="model.user.lastName" type="text"
+                   class="form-control" id="last-name" name="last-name"
+                   placeholder="Last Name"/>
+        </div>
+
+        <div ng-show="model.error" class="alert alert-danger" role="alert">
+            {{model.error}}
+        </div>
+        <div ng-show="registerForm.$submitted && registerForm.password.$valid &&
+                 registerForm['conf-password'].$valid && (registerForm['password'] !== registerForm['conf-password'])"
+             class="alert alert-danger" role="alert">
+            Password and Conf. Password are different!
+        </div>
+        <hr class="separator">
+        <div class="form-group">
+            <button type="submit" class="btn btn-block btn-success"
+                    ng-click="registerForm.$valid && model.register()">
+                Register
+            </button>
+        </div>
+        <div class="form-group">
+            <a class="btn btn-block btn-danger" href="#!/login">
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>

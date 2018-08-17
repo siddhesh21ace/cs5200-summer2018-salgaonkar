@@ -23,7 +23,7 @@ public class AdminService {
         return (List<Admin>) adminRepository.findAll();
     }
 
-    Admin findAdminById(int adminId) throws Exception {
+    Admin findAdminById(Long adminId) throws Exception {
         Optional<Admin> data = adminRepository.findById(adminId);
         if (data.isPresent()) {
             return data.get();
@@ -31,7 +31,7 @@ public class AdminService {
         throw new Exception("No admin found with id = " + adminId);
     }
 
-    Admin updateAdmin(int adminId, Admin newAdmin) throws Exception {
+    Admin updateAdmin(Long adminId, Admin newAdmin) throws Exception {
         Optional<Admin> data = adminRepository.findById(adminId);
         if (data.isPresent()) {
             Admin admin = data.get();
@@ -45,7 +45,7 @@ public class AdminService {
         throw new Exception("No admin found with id = " + adminId);
     }
 
-    void deleteAdmin(int id) {
+    void deleteAdmin(Long id) {
         adminRepository.deleteById(id);
     }
 }

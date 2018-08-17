@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Pokepedia" ng-controller="IndexController as model">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title ng-bind="title"></title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="favicons/manifest.json">
+    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Google Fonts -->
+    <link type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300" rel="stylesheet">
+    <link type="text/css" href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link type="text/css" href="https://fonts.googleapis.com/css?family=Electrolize|Nunito" rel="stylesheet">
+
+    <!-- Custom -->
+    <link type="text/css" href="css/remote.css" rel="stylesheet">
+    <link type="text/css" href="css/style.css" rel="stylesheet">
+
+    <!-- remote -->
+    <script type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="config.js"></script>
+
+    <!-- directives -->
+    <script type="text/javascript" src="directives/stats-bar.directive.client.js"></script>
+    <script type="text/javascript" src="directives/page-scroll.directive.client.js"></script>
+    <script type="text/javascript" src="directives/theater.directive.client.js"></script>
+
+    <!-- services -->
+    <script type="text/javascript" src="services/user.service.client.js"></script>
+    <script type="text/javascript" src="services/card.service.client.js"></script>
+    <script type="text/javascript" src="services/pokemon.service.client.js"></script>
+    <script type="text/javascript" src="services/game.service.client.js"></script>
+    <script type="text/javascript" src="services/util.service.client.js"></script>
+    <script type="text/javascript" src="services/gym-leader.service.client.js"></script>
+
+    <!-- controllers -->
+    <script type="text/javascript" src="views/user/controllers/login.controller.client.js"></script>
+    <script type="text/javascript" src="views/user/controllers/register.controller.client.js"></script>
+    <script type="text/javascript" src="views/user/controllers/profile.controller.client.js"></script>
+    <script type="text/javascript" src="views/index.controller.client.js"></script>
+    <script type="text/javascript" src="views/includes/header.controller.client.js"></script>
+    <script type="text/javascript" src="views/landing-page/controllers/home.controller.client.js"></script>
+    <script type="text/javascript" src="views/pokemon/controllers/game.controller.client.js"></script>
+    <script type="text/javascript" src="views/pokedex/controllers/pokedex.controller.client.js"></script>
+    <script type="text/javascript" src="views/pokedex/controllers/pokemon-info.controller.client.js"></script>
+    <script type="text/javascript" src="views/user/controllers/admin.controller.client.js"></script>
+    <script type="text/javascript" src="views/user/controllers/gym-leader.controller.client.js"></script>
+
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js">
+    </script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+<div ng-view>
+</div>
+<div ng-include="'views/includes/footer.view.client.html'"></div>
+
+<!-- remote -->
+<script type="text/javascript"
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/angucomplete-alt/3.0.0/angucomplete-alt.min.js"></script>
+<script type="text/javascript"
+        src="https://rawgit.com/esleducation/ng-rating/master/js/ng-rating.js"></script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/theaterjs/latest/theater.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax-min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.2/jquery.barrating.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload-shim.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js
+"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

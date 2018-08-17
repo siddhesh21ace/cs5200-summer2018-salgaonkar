@@ -1,0 +1,50 @@
+<div ng-include="'views/includes/header.view.client.html'"></div>
+
+<div>
+    <div id="loading">
+        <div id="pokedex-gif" style="width: 200px;">
+            <img src="../../../img/pokedex.gif" alt="Pokeball">
+            <h3>Loading Pokedex......</h3>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="alert alert-danger text-center" ng-if="model.error">
+            <p>{{model.error}}</p>
+        </div>
+        <h1 class="text-center">Pokédex | Search Pokemon</h1>
+        <div class="md-form">
+            <angucomplete-alt
+                    id="searchPokemon"
+                    name="searchPokemon"
+                    placeholder="Search Pokemon"
+                    local-data="model.matches"
+                    selected-object="model.selectPokemon"
+                    minlength="2"
+                    text-searching="Searching for Pokemons..."
+                    text-no-results="No Pokemon Found."
+                    search-fields='name'
+                    title-field='name'
+                    input-class="form-control form-control-small"
+                    input-changed="model.resetResult"
+                    match-class="highlight"
+                    required
+                    class="col-md-12 form-control"
+                    style="color: #9CDC18;height: 60px;">
+            </angucomplete-alt>
+        </div>
+    </div>
+    <hr class="separator">
+    <div class="details col-md-10 col-md-offset-2 text-center">
+        <figure ng-repeat="pokemon in model.pokemonThumbs"
+                ng-show="model.searchResults.name == '' || model.searchResults.name == pokemon.name || searchStr.$valid"
+                class="col-md-3 text-center pokemon-thumb" ng-click="model.getMoreInfo(pokemon)">
+            <img ng-src="{{pokemon.image}}" class="pokemon-thumb-img">
+            <figcaption>
+                <div class="text-center pokemon-thumb-name">{{pokemon.name}}#{{pokemon.id}}</div>
+            </figcaption>
+        </figure>
+    </div>
+
+</div>
+

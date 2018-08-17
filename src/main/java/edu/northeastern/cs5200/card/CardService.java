@@ -55,7 +55,7 @@ public class CardService {
         return baseUrl;
     }
 
-    public ResponseEntity<String> findCardById(String cardId) {
+    public ResponseEntity<String> fetchCardById(String cardId) {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
