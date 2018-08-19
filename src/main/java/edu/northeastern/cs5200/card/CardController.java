@@ -13,12 +13,12 @@ public class CardController {
         this.cardService = cardService;
     }
 
-    @PostMapping(value = "/api/card")
+    @PostMapping("/pokemontcgapi/card")
     public ResponseEntity<String> fetchAllCards(@RequestBody CardCriteria cardCriteria) {
         return cardService.fetchAllCards(cardCriteria);
     }
 
-    @GetMapping(value = "/api/card/{cardId}")
+    @GetMapping("/pokemontcgapi/card/{cardId}")
     public ResponseEntity<String> fetchCardById(@PathVariable("cardId") String cardId) {
         return cardService.fetchCardById(cardId);
     }

@@ -36,7 +36,7 @@ public class PokemonService {
         return POKE_API.getType(typeId);
     }
 
-    public Pokemon  fetchPokemonById(int pokemonId) {
+    public Pokemon fetchPokemonById(int pokemonId) {
         me.sargunvohra.lib.pokekotlin.model.Pokemon metaPokemon = POKE_API.getPokemon(pokemonId);
         return populateDetails(metaPokemon);
     }
@@ -126,13 +126,13 @@ public class PokemonService {
             species.setEvolves_from(pokemonSpecies.getEvolvesFromSpecies().getName());
 
         pokemonSpecies.getFlavorTextEntries().forEach(pokemonSpeciesFlavorText -> {
-            if(pokemonSpeciesFlavorText.getLanguage().getName().equals("en")) {
+            if (pokemonSpeciesFlavorText.getLanguage().getName().equals("en")) {
                 species.setDescription(pokemonSpeciesFlavorText.getFlavorText());
             }
         });
 
         pokemonSpecies.getGenera().forEach(genus -> {
-            if(genus.getLanguage().getName().equals("en")) {
+            if (genus.getLanguage().getName().equals("en")) {
                 species.setGenus(genus.getGenus());
             }
         });

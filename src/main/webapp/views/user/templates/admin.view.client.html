@@ -1,69 +1,266 @@
 <div ng-include="'views/includes/header.view.client.html'"></div>
 
 <div class="container-fluid">
-    <h1>User Management</h1>
+    <!-- Trainers -->
+    <h1>Trainer Management</h1>
 
     <table class="table table-striped">
         <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Email</th>
-                <th>Roles</th>
-                <th>&nbsp;</th>
-            </tr>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>Berries</th>
+            <th>Potion</th>
+            <th>Coins</th>
+            <th>Points</th>
+            <th>&nbsp;</th>
+        </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    <input ng-model="model.user.firstName" class="form-control" type="text" placeholder="First Name">
-                </td>
-                <td>
-                    <input ng-model="model.user.lastName" class="form-control" type="text" placeholder="Last Name">
-                </td>
-                <td>
-                    <input ng-model="model.user.username" class="form-control" type="text" placeholder="Username">
-                </td>
-                <td>
-                    <input ng-model="model.user.password" class="form-control" type="password" placeholder="Password">
-                </td>
-                <td>
-                    <input ng-model="model.user.email" class="form-control" type="email" placeholder="Email">
-                </td>
-                <td>
-                    <input ng-model="model.user.roles" class="form-control" type="text" placeholder="Roles">
-                </td>
-                <td>
-                    <button ng-click="model.createUser(model.user)" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </button>
-                </td>
-                <td>
-                    <button ng-click="model.updateUser(model.user)" class="btn btn-success">
-                        <span class="glyphicon glyphicon-ok"></span>
-                    </button>
-                </td>
-            </tr>
-            <tr ng-repeat="user in model.users">
-                <td>{{user.firstName}}</td>
-                <td>{{user.lastName}}</td>
-                <td>{{user.username}}</td>
-                <td>&nbsp;</td>
-                <td>{{user.email}}</td>
-                <td>{{user.roles}}</td>
-                <td>
-                    <button ng-click="model.deleteUser(user._id)" class="btn btn-danger">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </td>
-                <td>
-                    <button ng-click="model.selectUser(user)" class="btn btn-warning">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </button>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <input ng-model="model.trainer.firstName" class="form-control" type="text" placeholder="First Name">
+            </td>
+            <td>
+                <input ng-model="model.trainer.lastName" class="form-control" type="text" placeholder="Last Name">
+            </td>
+            <td>
+                <input ng-model="model.trainer.username" class="form-control" type="text" placeholder="Username">
+            </td>
+            <td>
+                <input ng-model="model.trainer.password" class="form-control" type="password" placeholder="Password">
+            </td>
+            <td>
+                <input ng-model="model.trainer.email" class="form-control" type="email" placeholder="Email">
+            </td>
+            <td>
+                <input ng-model="model.trainer.berries" class="form-control" type="number" placeholder="Berries">
+            </td>
+            <td>
+                <input ng-model="model.trainer.potion" class="form-control" type="number" placeholder="Potion">
+            </td>
+            <td>
+                <input ng-model="model.trainer.coins" class="form-control" type="number" placeholder="Coins">
+            </td>
+            <td>
+                <input ng-model="model.trainer.points" class="form-control" type="number" placeholder="Points">
+            </td>
+            <td>
+                <button ng-disabled="!model.trainer.username"
+                        ng-click="model.createTrainer(model.trainer)"
+                        class="btn btn-primary">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </td>
+            <td>
+                <button ng-disabled="!model.trainer.username"
+                        ng-click="model.updateTrainer(model.trainer)"
+                        class="btn btn-success">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </button>
+            </td>
+            <td>
+                <button ng-disabled="!model.trainer.username"
+                        ng-click="model.trainer = {}"
+                        class="btn btn-success">
+                    <span class="glyphicon glyphicon-erase"></span>
+                </button>
+            </td>
+        </tr>
+        <tr ng-repeat="trainer in model.trainers">
+            <td>{{trainer.firstName}}</td>
+            <td>{{trainer.lastName}}</td>
+            <td>{{trainer.username}}</td>
+            <td>********</td>
+            <td>{{trainer.email}}</td>
+            <td>{{trainer.berries}}</td>
+            <td>{{trainer.potion}}</td>
+            <td>{{trainer.coins}}</td>
+            <td>{{trainer.points}}</td>
+            <td>
+                <button ng-click="model.deleteTrainer(trainer.id)" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </td>
+            <td>
+                <button ng-click="model.selectTrainer(trainer)" class="btn btn-warning">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <hr>
+    <!-- Gym Leaders -->
+
+    <h1>Gym Leader Management</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>Badge</th>
+            <th>Region</th>
+            <th>Type</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <input ng-model="model.gymLeader.firstName" class="form-control" type="text" placeholder="First Name">
+            </td>
+            <td>
+                <input ng-model="model.gymLeader.lastName" class="form-control" type="text" placeholder="Last Name">
+            </td>
+            <td>
+                <input ng-model="model.gymLeader.username" class="form-control" type="text" placeholder="Username">
+            </td>
+            <td>
+                <input ng-model="model.gymLeader.password" class="form-control" type="password" placeholder="Password">
+            </td>
+            <td>
+                <input ng-model="model.gymLeader.email" class="form-control" type="email" placeholder="Email">
+            </td>
+            <td>
+                <input ng-model="model.gymLeader.badge" class="form-control" type="text" placeholder="Badge">
+            </td>
+            <td>
+                <input ng-model="model.gymLeader.region" class="form-control" type="text" placeholder="Region">
+            </td>
+            <td>
+                <input ng-model="model.gymLeader.type" class="form-control" type="text" placeholder="Type">
+            </td>
+            <td>
+                <button ng-disabled="!model.gymLeader.username"
+                        ng-click="model.createGymLeader(model.gymLeader)"
+                        class="btn btn-primary">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </td>
+            <td>
+                <button ng-disabled="!model.gymLeader.username"
+                        ng-click="model.updateGymLeader(model.gymLeader)"
+                        class="btn btn-success">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </button>
+            </td>
+            <td>
+                <button ng-disabled="!model.gymLeader.username"
+                        ng-click="model.gymLeader = {}"
+                        class="btn btn-success">
+                    <span class="glyphicon glyphicon-erase"></span>
+                </button>
+            </td>
+        </tr>
+        <tr ng-repeat="gymLeader in model.gymLeaders">
+            <td>{{gymLeader.firstName}}</td>
+            <td>{{gymLeader.lastName}}</td>
+            <td>{{gymLeader.username}}</td>
+            <td>********</td>
+            <td>{{gymLeader.email}}</td>
+            <td>{{gymLeader.badge}}</td>
+            <td>{{gymLeader.region}}</td>
+            <td>{{gymLeader.type}}</td>
+            <td>
+                <button ng-click="model.deleteGymLeader(gymLeader.id)" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </td>
+            <td>
+                <button ng-click="model.selectGymLeader(gymLeader)" class="btn btn-warning">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!-- Pets-->
+
+    <h1>Pet Management</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Experience</th>
+            <th>Level</th>
+            <th>Is Primary</th>
+            <th>Pokedex #</th>
+            <th>Person</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <input ng-model="model.pet.experience" class="form-control" type="number" placeholder="Experience">
+            </td>
+            <td>
+                <input ng-model="model.pet.level" class="form-control" type="number" placeholder="Level">
+            </td>
+            <td>
+                <input ng-model="model.pet.is_primary" class="form-control" type="text" placeholder="Is Primary">
+            </td>
+            <td>
+                <input ng-model="model.pet.pokedex_no" class="form-control" type="number" placeholder="Pokedex #">
+            </td>
+            <td>
+                <select class="form-control" ng-model="model.pet.person.id">
+                    <option ng-repeat="person in model.persons"
+                            ng-selected="model.pet.person.id == person.id"
+                            value="{{person.id}}">{{person.username}}
+                    </option>
+                </select>
+            </td>
+            <td>
+                <button ng-disabled="!model.pet.experience"
+                        ng-click="model.createPet(model.pet)"
+                        class="btn btn-primary">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </td>
+            <td>
+                <button ng-disabled="!model.pet.experience"
+                        ng-click="model.updatePet(model.pet)"
+                        class="btn btn-success">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </button>
+            </td>
+            <td>
+                <button ng-disabled="!model.pet.experience"
+                        ng-click="model.pet = {}"
+                        class="btn btn-success">
+                    <span class="glyphicon glyphicon-erase"></span>
+                </button>
+            </td>
+        </tr>
+        <tr ng-repeat="pet in model.pets">
+            <td>{{pet.experience}}</td>
+            <td>{{pet.level}}</td>
+            <td>{{pet.is_primary}}</td>
+            <td>{{pet.pokedex_no}}</td>
+            <td>{{pet.person.username}}</td>
+            <td>
+                <button ng-click="model.deletePet(pet.id)" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </td>
+            <td>
+                <button ng-click="model.selectPet(pet)" class="btn btn-warning">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+            </td>
+        </tr>
         </tbody>
     </table>
 </div>

@@ -1,0 +1,32 @@
+<div ng-include="'views/includes/header.view.client.html'"></div>
+
+<div class="wrapper userProfile container profile-page">
+    <div id="loading">
+        <div id="profile" style="width: 300px;">
+            <img src="../../../img/profile-ash-loading.png" alt="Pokeball">
+            <h3>Loading Trainer Profile.....</h3>
+        </div>
+    </div>
+</div>
+
+<hr class="separator">
+
+<div class="container">
+    <div class="userLikes col-md-12">
+        <h1>Gym Leaders</h1>
+        <div class="row">
+            <div ng-repeat="gymLeader in model.gymLeaders" class="col-sm-3 col-md-4">
+                <div class="thumbnail">
+                    <h1>{{gymLeader.firstName}}</h1>
+                    <img ng-src="../../../img/{{gymLeader.username}}.png">
+                    <h3>Type: {{gymLeader.type}}</h3>
+                    <h3>Badge: {{gymLeader.badge}}</h3>
+                    <h3>Region: {{gymLeader.region}}</h3>
+                    <a class="btn btn-default" href="/#!/trainer/{{model.user.id}}/gym-leader/{{gymLeader.id}}">
+                        Challenge
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

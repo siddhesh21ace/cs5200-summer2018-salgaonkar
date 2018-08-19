@@ -1,0 +1,67 @@
+<div ng-include="'views/includes/header.view.client.html'"></div>
+
+<div class="wrapper userProfile container profile-page">
+    <div id="loading">
+        <div id="profile" style="width: 300px;">
+            <img src="../../../img/profile-ash-loading.png" alt="Pokeball">
+            <h3>Loading Order details.....</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="userDetails col-md-8">
+            <h1>{{model.user.firstName}}</h1>
+            <h3>Coins: {{model.user.coins}}</h3>
+            <h3>Points: {{model.user.points}}</h3>
+            <h3>Berries: {{model.user.berries}}</h3>
+            <h3>Potion: {{model.user.potion}}</h3>
+        </div>
+    </div>
+
+    <form class="table-responsive" name="orderForm">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Item Cost</th>
+                <th>Choose Quantity</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="item in model.items">
+                <td>
+                    {{item.name}}
+                </td>
+                <td>
+                    {{item.price}}
+                </td>
+                <td>
+                    <label>
+                        <input type="number" ng-model="item.quantity" class="form-control"/>
+                    </label>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+        <div class="form-group" style="overflow: hidden">
+            <div class="row">
+                <div class="col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6 local">
+                    <button type="submit" class="btn btn-block btn-success"
+                            ng-click="model.order(model.items)">
+                        Order
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div ng-show="model.error" class="alert alert-danger" role="alert">
+            {{model.error}}
+        </div>
+        <div ng-show="model.success" class="alert" role="alert">
+            {{model.success}}
+        </div>
+    </form>
+</div>
+
+<hr class="separator">

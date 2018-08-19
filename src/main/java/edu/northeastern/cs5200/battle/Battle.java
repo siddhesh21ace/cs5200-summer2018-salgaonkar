@@ -1,10 +1,8 @@
 package edu.northeastern.cs5200.battle;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.northeastern.cs5200.person.GymLeader.GymLeader;
 import edu.northeastern.cs5200.person.trainer.Trainer;
 import org.hibernate.annotations.Type;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -25,10 +23,6 @@ public class Battle {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @MapsId("gymleader_id")
     private GymLeader gymLeader;
-
-    @CreatedDate
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdDate;
 
     @Column(name = "trainer_won", nullable = false)
     @Type(type = "org.hibernate.type.NumericBooleanType")
@@ -52,12 +46,13 @@ public class Battle {
 
         Battle that = (Battle) o;
         return Objects.equals(trainer, that.trainer) &&
-                Objects.equals(gymLeader, that.gymLeader);
+                Objects.equals(gymLeader, that.gymLeader) &&
+                Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(trainer, gymLeader);
+        return Objects.hash(trainer, gymLeader, id);
     }
 
     public BattleId getId() {
@@ -85,11 +80,7 @@ public class Battle {
     }
 
     public LocalDateTime getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(LocalDateTime createdDate) {
-        this.createdDate = createdDate;
+        return id.getCreatedDate();
     }
 
     public Boolean getTrainerWon() {

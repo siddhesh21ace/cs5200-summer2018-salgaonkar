@@ -99,7 +99,7 @@ public class PersonService {
         return pets;
     }
 
-    Person findPersonByUsername(String username) throws Exception {
+    public Person findPersonByUsername(String username) throws Exception {
         List<Person> persons = (List<Person>) personRepository.findPersonByUsername(username);
         if (!CollectionUtils.isEmpty(persons)) {
             return persons.get(0);

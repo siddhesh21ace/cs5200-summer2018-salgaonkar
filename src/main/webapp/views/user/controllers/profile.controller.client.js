@@ -23,35 +23,35 @@
                     $("#loading").delay(200).fadeOut("slow").remove();
                     // return CardService.findCardsByUser(vm.user._id);
                 });
-                // .then(response => {
-                //     let cardIDs = response.data;
-                //     cardIDs.forEach(obj => {
-                //         CardService.findCardByTCGID(obj.tcgID)
-                //             .then(response => {
-                //                 vm.collectedCards.push(response.data.card);
-                //             })
-                //     });
-                //     $("#profile").fadeOut("slow");
-                //     $("#loading").delay(200).fadeOut("slow").remove();
-                //     return LikeService.findLikedPokemonsByUser(vm.user._id);
-                // })
-                // .then(response => {
-                //     let likeMapping = response.data;
-                //     likeMapping.forEach(obj => {
-                //         PokemonService.findPokemonById(obj.pokemon_id)
-                //             .then(response => {
-                //                 let poke = response.data;
-                //                 return PokemonService.findPokemonByPokeId(poke.pokedex_number);
-                //             })
-                //             .then(response => {
-                //                 let pokemon = response.data;
-                //                 pokemon.img_id = padToThree(pokemon.id);
-                //                 vm.likedPokemons.push(pokemon);
-                //                 $("#profile").fadeOut("slow");
-                //                 $("#loading").delay(200).fadeOut("slow").remove();
-                //             });
-                //     });
-                // });
+            // .then(response => {
+            //     let cardIDs = response.data;
+            //     cardIDs.forEach(obj => {
+            //         CardService.findCardByTCGID(obj.tcgID)
+            //             .then(response => {
+            //                 vm.collectedCards.push(response.data.card);
+            //             })
+            //     });
+            //     $("#profile").fadeOut("slow");
+            //     $("#loading").delay(200).fadeOut("slow").remove();
+            //     return LikeService.findLikedPokemonsByUser(vm.user._id);
+            // })
+            // .then(response => {
+            //     let likeMapping = response.data;
+            //     likeMapping.forEach(obj => {
+            //         PokemonService.findPokemonById(obj.pokemon_id)
+            //             .then(response => {
+            //                 let poke = response.data;
+            //                 return PokemonService.findPokemonByPokeId(poke.pokedex_number);
+            //             })
+            //             .then(response => {
+            //                 let pokemon = response.data;
+            //                 pokemon.img_id = padToThree(pokemon.id);
+            //                 vm.likedPokemons.push(pokemon);
+            //                 $("#profile").fadeOut("slow");
+            //                 $("#loading").delay(200).fadeOut("slow").remove();
+            //             });
+            //     });
+            // });
             $("#myModal1").modal('hide');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();

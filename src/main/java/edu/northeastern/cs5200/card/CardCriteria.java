@@ -7,13 +7,14 @@ public class CardCriteria {
     private int pageSize = 1000;
     private String superType = "Pokémon";
     private String subType;
-    private String setCode;
+    private String setCode = "xyp";
     private String name;
     private String weaknesses;
     private String attackDamage;
     private String attackCost;
     private String retreatCost;
     private String hp;
+    private String pokedexNumber;
 
     public int getPageSize() {
         return pageSize;
@@ -93,5 +94,13 @@ public class CardCriteria {
 
     public void setHp(String hp) {
         this.hp = hp;
+    }
+
+    public String getPokedexNumber() {
+        return pokedexNumber;
+    }
+
+    public void setPokedexNumber(String pokedexNumber) {
+        this.pokedexNumber = pokedexNumber;
     }
 }

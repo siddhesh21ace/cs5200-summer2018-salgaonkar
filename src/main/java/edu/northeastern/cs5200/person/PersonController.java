@@ -44,7 +44,7 @@ public class PersonController {
         personService.deletePerson(id);
     }
 
-    @PutMapping("/api/person/{personId}/pet/{petId}")
+    @PostMapping("/api/person/{personId}/pet/{petId}")
     public Person addPet(@PathVariable("personId") Long personId,
                          @PathVariable("petId") Long petId) {
         return personService.addPet(personId, petId);
@@ -60,15 +60,15 @@ public class PersonController {
         return personService.findPersonByUsername(username);
     }
 
-    @PostMapping("/api/register")
-    public Person register(@RequestBody Person person, HttpSession session) throws Exception {
-        if (personService.findPersonByUsername(person.getUsername()) != null) {
-            throw new Exception("Username already exists.");
-        } else {
-            session.setAttribute(PERSON_ID, person.getId());
-            return personService.createPerson(person);
-        }
-    }
+//    @PostMapping("/api/register")
+//    public Person register(@RequestBody Person person, HttpSession session) throws Exception {
+//        if (personService.findPersonByUsername(person.getUsername()) != null) {
+//            throw new Exception("Username already exists.");
+//        } else {
+//            session.setAttribute(PERSON_ID, person.getId());
+//            return personService.createPerson(person);
+//        }
+//    }
 
 //    @PutMapping("/api/profile/{userId}")
 //    public User updateProfile(@PathVariable("userId") int userId, @RequestBody User newUser) throws Exception {

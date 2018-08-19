@@ -24,20 +24,20 @@
                 controllerAs: 'model',
                 title: 'Register'
             })
-            .when("/user", {
-                templateUrl: 'views/user/templates/profile.view.client.html',
-                controller: "ProfileController",
+            .when("/trainer/:tid", {
+                templateUrl: 'views/user/templates/trainer.view.client.html',
+                controller: 'TrainerController',
                 controllerAs: 'model',
                 title: 'Profile',
                 resolve: {
                     isLoggedIn: isLoggedIn
                 }
             })
-            .when("/user/:uid", {
-                templateUrl: 'views/user/templates/profile.view.client.html',
-                controller: 'ProfileController',
+            .when("/trainer/:tid/order", {
+                templateUrl: 'views/order/templates/order.view.client.html',
+                controller: 'OrderController',
                 controllerAs: 'model',
-                title: 'Profile',
+                title: 'Order',
                 resolve: {
                     isLoggedIn: isLoggedIn
                 }
@@ -47,15 +47,6 @@
                 controller: 'GymLeaderController',
                 controllerAs: 'model',
                 title: 'Profile',
-                resolve: {
-                    isLoggedIn: isLoggedIn
-                }
-            })
-            .when("/game", {
-                templateUrl: 'views/pokemon/templates/game.view.client.html',
-                controller: 'GameController',
-                controllerAs: 'model',
-                title: 'Game',
                 resolve: {
                     isLoggedIn: isLoggedIn
                 }
@@ -71,6 +62,24 @@
                 controller: "PokemonInfoController",
                 controllerAs: 'model',
                 title: 'Pokémon Details'
+            })
+            .when("/trainer/:tid/gym-leader", {
+                templateUrl: 'views/user/templates/gym-leader-list.view.client.html',
+                controller: 'GymLeaderListController',
+                controllerAs: 'model',
+                title: 'Gym Leaders',
+                resolve: {
+                    isLoggedIn: isLoggedIn
+                }
+            })
+            .when("/trainer/:tid/gym-leader/:gid", {
+                templateUrl: 'views/pokemon/templates/game.view.client.html',
+                controller: 'GameController',
+                controllerAs: 'model',
+                title: 'Game',
+                resolve: {
+                    isLoggedIn: isLoggedIn
+                }
             })
             .when("/admin", {
                 templateUrl: 'views/user/templates/admin.view.client.html',

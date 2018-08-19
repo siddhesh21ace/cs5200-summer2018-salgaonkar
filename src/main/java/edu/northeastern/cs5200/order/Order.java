@@ -15,6 +15,10 @@ import java.util.List;
 @EntityListeners(AuditingEntityListener.class)
 @Table(name = "Item_Order")
 public class Order {
+    public Long getId() {
+        return id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

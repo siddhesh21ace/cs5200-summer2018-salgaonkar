@@ -47,6 +47,8 @@ public class CardService {
             addIfNotEmpty(uriBuilder, "attackCost", cardCriteria.getAttackCost());
             addIfNotEmpty(uriBuilder, "retreatCost", cardCriteria.getRetreatCost());
             addIfNotEmpty(uriBuilder, "hp", cardCriteria.getHp());
+            addIfNotEmpty(uriBuilder, "nationalPokedexNumber", cardCriteria.getPokedexNumber());
+
             baseUrl = URLDecoder.decode(uriBuilder.toString(), "UTF-8");
         } catch (URISyntaxException | UnsupportedEncodingException e) {
             e.printStackTrace();

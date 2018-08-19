@@ -1,3 +1,3 @@
 (function () {
-    angular.module("Pokepedia", ["ngRoute", "ngRating", "angucomplete-alt"]);
+    angular.module("Pokepedia", ["ngRoute", "angucomplete-alt"]);
 })();

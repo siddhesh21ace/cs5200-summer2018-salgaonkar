@@ -30,7 +30,7 @@
                 })
                 .then(response => {
                     vm.user.pets = response.data;
-                    return GymLeaderService.findBattles(vm.user.id);
+                    return GymLeaderService.findBattlesByGymLeader(vm.user.id);
                 }, (error) => {
                     console.log(error);
                 })
@@ -55,7 +55,7 @@
                     if (user === null) {
                         vm.error = "Unable to update user";
                     } else {
-                        vm.message = "User successfully updated";
+                        vm.success = "User successfully updated";
                     }
                 }, error => {
                     vm.error = "Unable to update user";

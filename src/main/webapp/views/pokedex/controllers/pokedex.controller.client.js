@@ -92,7 +92,7 @@
         }
 
         function getResults(searchTerm) {
-            vm.searchResults  = searchTerm.originalObject;
+            vm.searchResults = searchTerm.originalObject;
             vm.searchResults.img = vm.searchResults.url;
         }
 

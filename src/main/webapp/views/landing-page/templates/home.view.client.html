@@ -27,36 +27,14 @@
             <div class="col-sm-4 col-xs-12 text-center">
                 <img src="../../../img/pika-card.png" class="img-responsive">
             </div>
-            <div class="col-sm-4 col-xs-12">
+            <div class="col-sm-8 col-xs-12">
                 <div class="about-text">
                     <h4>What is Poképedia ?</h4>
-                    <p><b><i>Poképedia</i></b> is our attempt to emulate the hugely popular Pokémon Universe on the
-                        web. We are fan boys of the franchise and this is our tribute to it. We created this as a final
-                        project for CS5610 course and do not intend to use it for commercial purposes</p>
-                    <p>Original plan includes creation of the Pokémon Trading Card Game which emulates Pokémon fights
-                        between two trainers. We also created a Pokédex module which emulates the Pokédex from the
-                        game.</p>
-                    <p>Future Scope: We intend to implement Gym Battles and two-player mode.</p>
-                </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <div class="about-text">
-                    <h4>Inspirations for this project</h4>
-                    <p>We would like to thank <b><i><a href="https://en.wikipedia.org/wiki/Satoshi_Tajiri">Satoshi
-                        Tajiri</a></i></b> - creator of the franchise
-                        without which our childhood's would not have been so interesting.</p>
-                    <p>This project could not have been possible without the existence of some amazing API's. We have
-                        tremendous gratitude
-                        for creators of these API's and keeping it open for educational purposes.
-                    <p>
 
-                    <p><a href="https://pokemontcg.io/">Pokémon TCG API</a> : Provides information on cards and sets</p>
-
-                    <p><a href="http://pokeapi.co/">Poké API:</a> PokéAPI is primarily an educational tool and is free
-                        and open to use.
-                        It provides all data related to the franchise and is well documented.</p>
-                    <p><a href="http://www.pokemon.com/us/">Pokémon website</a>: We were heavily inspired by Pokémon's
-                        original website.</p>
+                    <p><b><i>Poképedia</i></b> is my attempt to emulate the hugely popular Pokémon Universe on the
+                        web. The plan includes creation of the game cum website which simulates all things Pokémon like
+                        Pokédex module which emulates the Pokédex (a detailed listings for Pokémon) from the game,
+                        Gym battles and a leaderboard for the users of the system.</p>
                 </div>
             </div>
         </div>
@@ -75,23 +53,14 @@
                     <h4 style="color: yellow">Play the Game!</h4>
                     <p>
                         <b><i>Pokémon Trading Card Game</i></b>
-                        is our attempt to create a web version of the hugely popular Pokémon Trading Card Game using
-                        MEAN
-                        Stack.</p>
+                        is my attempt to create a web version of the hugely popular Pokémon Trading Card Game.</p>
                     <p>The basic game play remains similar to the original game. Players assume the role of a Pokémon
-                        trainer and use their Pokémon to battle their opponents.
-                        In our game the opponent is the computer which makes its moves automatically.</p>
-                    <p>To keep the game fair, the cards are assigned at random. Every attack reduces the Hit Points(HP)
-                        of
-                        the opponents Pokémon.
+                        trainer and use their Pokémon to battle their opponents.</p>
+                    <p>
                         A Pokémon gets knocked off if it's HP falls below 0.</p>
-                    <p>The player wins when all if the opponents Pokémons are knocked off. A card is gifted to the
+                    <p>The player wins when the opponents Pokémon is knocked off. A pokemon is gifted to the
                         winner
                         and added to his profile.</p>
-                    <div style="margin-top: 50px;">
-                        <a class="btn btn-default" data-toggle="modal" data-target="#myModal">Rules</a> <a
-                            href="/#!/game/" class="btn btn-default">Play Game</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -128,37 +97,6 @@
     </div>
 </div>
 
-<div id="gym" class="text-center gym">
-    <div class="container">
-        <div class="section-title center">
-            <h2>Gym & Gym Battles</h2>
-            <hr>
-        </div>
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row gym" style="font-size: 16px;">
-                    <div class="col-sm-12">
-                        <blockquote>
-                            <p>A Gym is a place where Pokémon Trainers go to train their Pokémon. Just like real-life
-                                gymnasiums, where one can go to work out and build physical strength, Pokémon Gyms are
-                                places where Trainers can go to sharpen their battling skills and where their Pokémon
-                                can go to gain experience.
-                                Often specializing in a particular type, Gyms create an environment which allows
-                                Trainers to test both their skills and Pokémon against those of others. </p>
-                            <p>The most powerful Trainer in a given Gym is called the Gym Leader, who is revered by both
-                                the lower-ranking members of the Gym and local fans.</p>
-                            <p>We are working on bringing this feature to Poképedia very soon.</p>
-                            <div class="clients-name">
-                                <h3 style="color: black;"><strong>Coming Soon..</strong></h3>
-                            </div>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div id="leaderboard" class="text-center">
     <div class="container">
         <div class="section-title center">
@@ -171,17 +109,20 @@
                 <ul class="list-group">
                     <li class="list-group-item leaderboard-line" style="background:gray">
                         <div class="row">
-                            <div class="col-xs-4">Trainer</div>
-                            <div class="col-xs-4">Games Played</div>
-                            <div class="col-xs-4">Games Won</div>
+                            <div class="col-xs-3">Trainer</div>
+                            <div class="col-xs-3">Games Played</div>
+                            <div class="col-xs-3">Games Won</div>
+                            <div class="col-xs-3">Points</div>
                         </div>
                     </li>
                     <li class="list-group-item leaderboard-line"
-                        ng-repeat="score in model.scores | orderBy:'-winPercentage' | limitTo:5">
+                        ng-repeat="score in model.scores | orderBy:['-winPercentage', '-points'] | limitTo:5">
                         <div class="row">
-                            <div class="col-xs-4">{{score.username}}</div>
-                            <div class="col-xs-4">{{score.played}}</div>
-                            <div class="col-xs-4">{{score.won}}</div>
+                            <div class="col-xs-3">{{score.username}}</div>
+                            <div class="col-xs-3">{{score.played}}</div>
+                            <div class="col-xs-3">{{score.won}}</div>
+                            <div class="col-xs-3">{{score.points}}</div>
+
                         </div>
                     </li>
                 </ul>
@@ -205,18 +146,15 @@
             <!--Body-->
             <div class="modal-body">
                 <h4>The screen is divided into two parts:</h4>
-                <h4>The top most area represents the Computers cards and its attacks. The bottom portion of the screen
-                    is
-                    belongs to you and your cards.</h4>
+                <h4>The top half represents Gym Leader's Pokemons and its attacks. The bottom half of the screen
+                    belongs to you and your pokemons.</h4>
                 <hr class="separator">
                 <ul type="i" class="text-center">
                     <li><b>Attack!</b> - Select the best possible attack you can</li>
-                    <li><b>Wait!</b> - Wait for "Computer" to finish its attack/li>
+                    <li><b>Wait!</b> - Wait for "Gym Leader" to finish its attack</li>
                     <li><b>HP Matters!</b> - Keep an eye on your Pokemon's HP (Hit Points)</li>
-                    <li>Once a Pokemon dies, the next one will start attacking.</li>
-                    <li>If you kill your opponent's pokemon, you start the next attack!</li>
-                    <li>The Person with cards remaining/ Pokemon's alive wins !!!</li>
-                    <li>Click "Play Game" to navigate to the game and start playing</li>
+                    <li>If you kill your opponent's pokemon, you win!</li>
+                    <li>Click "Start Game" to begin playing</li>
                 </ul>
                 <hr class="separator">
                 <ul>

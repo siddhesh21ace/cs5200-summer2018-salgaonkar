@@ -4,19 +4,26 @@
     <div id="loading">
         <div id="profile" style="width: 300px;">
             <img src="../../../img/profile-ash-loading.png" alt="Pokeball">
-            <h3>Loading Trainer Profile.....</h3>
+            <h3>Loading Gym Leader Profile.....</h3>
         </div>
     </div>
 
     <div class="row">
-        <div class="userDetails col-md-8">
-            <h1>{{model.user.firstName}} {{model.user.lastName}} </h1>
+        <div class="userDetails center col-sm-4 col-xs-12">
             <img ng-src="../../../img/{{model.user.username}}.png">
-            <!--<h3>Username: {{model.user.username}}</h3>-->
-            <!--<h3>Email: {{model.user.email}}</h3>-->
         </div>
-        <div class="userDetails col-md-4">
+        <div class="userDetails center col-sm-8 col-xs-12">
+            <h1>{{model.user.firstName}}</h1>
+            <h3>Type: {{model.user.type}}</h3>
+            <h3>Badge: {{model.user.badge}}</h3>
+            <h3>Region: {{model.user.region}}</h3>
             <button class="btn btn-default" ng-click="model.update()">Update Profile</button>
+            <div ng-show="model.error" class="alert alert-danger" role="alert">
+                {{model.error}}
+            </div>
+            <div ng-show="model.success" class="alert" role="alert">
+                {{model.success}}
+            </div>
         </div>
     </div>
 </div>
@@ -35,11 +42,11 @@
                              style="height: 320px; width: 100%; display: block">
                     </a>
                     <div class="caption">
-                        <h3>{{pet.name}}</h3>
-                        <p>{{pet.pokedex_no}}</p>
-                        <p>{{pet.experience}}</p>
-                        <p>{{pet.level}}</p>
-                        <p>{{pet.is_primary}}</p>
+                        <h3>Name: {{pet.name}}</h3>
+                        <h4>Pokedex: {{pet.pokedex_no}}</h4>
+                        <h4>Experience: {{pet.experience}}</h4>
+                        <h4>Level: {{pet.level}}</h4>
+                        <h4>Is Primary: {{pet.is_primary}}</h4>
                         <button class="btn btn-default"
                                 ng-click="model.makePrimary(pet.id)">
                             Make Primary
@@ -48,15 +55,6 @@
                 </div>
             </div>
         </div>
-
-        <!--<a ng-click="model.getMoreInfo(pet.pokedex_no)"-->
-        <!--ng-repeat="pet in model.user.pets" class="col-md-3 text-center">-->
-        <!--<img ng-src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/{{model.padToThree(pet.pokedex_no)}}.png">-->
-        <!--<h4 class="text-center">-->
-        <!--{{pet.name}}#{{pet.pokedex_no}}#{{pet.experience}}#{{pet.level}}#{{pet.is_primary}}-->
-        <!--</h4>-->
-
-        <!--</a>-->
     </div>
 </div>
 
@@ -84,7 +82,7 @@
                         <div class="row">
                             <div class="col-xs-4">{{battle.trainer.firstName}}&nbsp;{{battle.trainer.lastName}}</div>
                             <div class="col-xs-4">{{battle.trainerWon ? "Lost" : "Won"}}</div>
-                            <div class="col-xs-4">{{battle.createdDate |  date : format : 'mediumDate'}}</div>
+                            <div class="col-xs-4">{{battle.createdDate | date : format : 'mediumDate'}}</div>
                         </div>
                     </li>
                 </ul>

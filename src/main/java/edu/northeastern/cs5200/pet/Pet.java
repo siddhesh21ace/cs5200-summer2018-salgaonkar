@@ -1,6 +1,6 @@
 package edu.northeastern.cs5200.pet;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import edu.northeastern.cs5200.person.Person;
 import org.hibernate.annotations.Type;
 
@@ -12,8 +12,8 @@ public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer experience;
-    private Integer level;
+    private Integer experience = 100;
+    private Integer level = 1;
 
     public Boolean getIs_primary() {
         return is_primary;
@@ -30,7 +30,7 @@ public class Pet {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "person_id")
-    @JsonIgnore
+    @JsonIgnoreProperties("pets")
     private Person person;
 
     @Transient

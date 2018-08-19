@@ -3,7 +3,6 @@ package edu.northeastern.cs5200.person.GymLeader;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.northeastern.cs5200.battle.Battle;
 import edu.northeastern.cs5200.person.Person;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

@@ -21,7 +21,8 @@
             "updateUserByAdmin": updateUserByAdmin,
             "deleteUserByAdmin": deleteUserByAdmin,
             "getAllPlayers": getAllPlayers,
-            "findPets": findPets
+            "findPets": findPets,
+            "addPet": addPet
         };
 
         function findPets(userId) {
@@ -69,7 +70,7 @@
         }
 
         function findUserById(userID) {
-            return $http.get("/api/user/" + userID);
+            return $http.get("/api/person/" + userID);
         }
 
         function isAdmin() {
@@ -85,11 +86,15 @@
         }
 
         function findAllUsers() {
-            return $http.get('/api/user');
+            return $http.get('/api/person');
         }
 
         function getAllPlayers() {
             return $http.get('/api/player');
+        }
+
+        function addPet(person, pet) {
+            return $http.post("/api/person/" + person.id + "/pet/" + pet.id);
         }
     }
 })();

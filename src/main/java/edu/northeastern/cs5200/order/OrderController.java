@@ -1,13 +1,12 @@
 package edu.northeastern.cs5200.order;
 
+import edu.northeastern.cs5200.item.Item;
 import edu.northeastern.cs5200.orderDetail.OrderDetail;
 import edu.northeastern.cs5200.person.Person;
-import edu.northeastern.cs5200.person.trainer.Trainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class OrderController {
@@ -59,4 +58,10 @@ public class OrderController {
     public Iterable<OrderDetail> findOrderDetails(@PathVariable("orderId") Long orderId) {
         return orderService.findOrderDetails(orderId);
     }
+
+    @PostMapping("/api/order/bundle")
+    public Order createOrderFromBundle(@RequestBody List<Item> items) {
+        return orderService.createOrderFromBundle(items);
+    }
+
 }

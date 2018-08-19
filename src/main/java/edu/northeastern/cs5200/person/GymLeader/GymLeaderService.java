@@ -38,6 +38,11 @@ public class GymLeaderService {
             gymLeader.setLastName(newGymLeader.getLastName());
             gymLeader.setEmail(newGymLeader.getEmail());
             gymLeader.setDob(newGymLeader.getDob());
+            gymLeader.setPassword(newGymLeader.getPassword());
+            gymLeader.setBadge(newGymLeader.getBadge());
+            gymLeader.setRegion(newGymLeader.getRegion());
+            gymLeader.setType(newGymLeader.getType());
+
             return gymLeaderRepository.save(gymLeader);
         }
         throw new Exception("No gymLeader found with id = " + gymLeaderId);

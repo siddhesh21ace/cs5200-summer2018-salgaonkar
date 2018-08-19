@@ -4,7 +4,6 @@ import edu.northeastern.cs5200.item.Item;
 import edu.northeastern.cs5200.order.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;

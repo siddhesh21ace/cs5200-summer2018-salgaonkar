@@ -8,7 +8,8 @@
         </div>
     </div>
     <div class="pokeName">
-        <h1 class="text-capitalize text-center">{{model.pokemon.metaPokemon.name}} # {{model.pokemon.metaPokemon.id}}</h1>
+        <h1 class="text-capitalize text-center">{{model.pokemon.metaPokemon.name}} #
+            {{model.pokemon.metaPokemon.id}}</h1>
     </div>
     <hr>
     <div class="upper">
@@ -23,9 +24,9 @@
             <div class="physicalAttribtues">
                 <h3>Physical Attributes</h3>
                 <ul>
-                    <li>Height : {{model.pokemon.metaPokemon.height}}</li>
-                    <li>Weight : {{model.pokemon.metaPokemon.weight}}</li>
-                    <li>Base Experience : {{model.pokemon.metaPokemon.base_experience}}</li>
+                    <li>Height : {{model.pokemon.metaPokemon.height/10}} m </li>
+                    <li>Weight : {{model.pokemon.metaPokemon.weight/10}} kgs</li>
+                    <li>Base Experience : {{model.pokemon.metaPokemon.baseExperience}}</li>
                     <li>Genus : {{model.pokemon.species.genus}}</li>
                     <li>Habitat : {{model.pokemon.species.habitat}}</li>
                     <li>Shape : {{model.pokemon.species.shape}}</li>
@@ -93,12 +94,12 @@
         <h3>Evolution</h3>
         <div class="evolution-pane">
             <figure ng-repeat="evo in model.pokemon.species.evoChains" class="col-md-3 pokemon-thumb"
-                    ng-click="model.getMoreInfo(evo.id)">
+                    ng-click="model.getMoreInfo(evo.pokeId)">
                 <img ng-src="{{evo.img}}"
                      class="img-responsive pokemon-thumb-img"
                      style="padding:16px"/>
                 <figcaption>
-                    <div class="text-center pokemon-thumb-name">{{evo.name}}#{{evo.id}}</div>
+                    <div class="text-center pokemon-thumb-name">{{evo.name}}#{{evo.pokeId}}</div>
                 </figcaption>
             </figure>
         </div>

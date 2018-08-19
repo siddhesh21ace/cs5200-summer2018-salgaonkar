@@ -18,10 +18,10 @@ import java.util.Objects;
 @Entity
 @Table(name = "Trainer")
 public class Trainer extends Person {
-    private Integer berries;
-    private Integer potion;
-    private Integer coins;
-    private Integer points;
+    private Integer berries = 20;
+    private Integer potion = 20;
+    private Integer coins = 100;
+    private Integer points = 100;
 
     @OneToMany(
             mappedBy = "trainer",

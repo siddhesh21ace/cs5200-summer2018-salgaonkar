@@ -38,11 +38,18 @@ public class TrainerService {
         Optional<Trainer> data = trainerRepository.findById(trainerId);
         if (data.isPresent()) {
             Trainer trainer = data.get();
-            trainer.setUsername(newTrainer.getUsername());
+
             trainer.setFirstName(newTrainer.getFirstName());
             trainer.setLastName(newTrainer.getLastName());
+            trainer.setUsername(newTrainer.getUsername());
+            trainer.setPassword(newTrainer.getPassword());
             trainer.setEmail(newTrainer.getEmail());
-            trainer.setDob(newTrainer.getDob());
+
+            trainer.setBerries(newTrainer.getBerries());
+            trainer.setCoins(newTrainer.getCoins());
+            trainer.setPoints(newTrainer.getPoints());
+            trainer.setPotion(newTrainer.getPotion());
+
             return trainerRepository.save(trainer);
         }
         throw new Exception("No trainer found with id = " + trainerId);

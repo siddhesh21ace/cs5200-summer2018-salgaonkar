@@ -1,10 +1,6 @@
 package edu.northeastern.cs5200.pokemon;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import edu.northeastern.cs5200.pet.Pet;
-
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity

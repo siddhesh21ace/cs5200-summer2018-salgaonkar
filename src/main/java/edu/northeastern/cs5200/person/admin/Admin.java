@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Admin extends Person {
     @Column(name = "is_master")
     @Type(type = "org.hibernate.type.NumericBooleanType")
-    private Boolean isMaster;
+    private Boolean isMaster = false;
 
     public Boolean getMaster() {
         return isMaster;

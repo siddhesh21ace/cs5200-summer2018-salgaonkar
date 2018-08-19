@@ -542,12 +542,12 @@ img.img-thumbnail.team-img {
     background-color: #f6f6f6;
 }
 
-#team .thumbnail {
+#team .thumbnail-2 {
     background: transparent;
     border: 0;
 }
 
-#team .thumbnail .caption {
+#team .thumbnail-2 .caption {
     padding: 9px;
     color: #777;
 }
@@ -1023,7 +1023,7 @@ img {
     display: inline;
 }
 
-.thumbnail {
+.thumbnail-2 {
     position: static;
     display: inline;
     top: 50%;
@@ -1037,7 +1037,7 @@ img {
     transform: translate(-50%, -50%);
 }
 
-.thumbnail > img {
+.thumbnail-2 > img {
     display: inline;
 }
 
@@ -1545,4 +1545,8 @@ form .progress {
     font-size: smaller;
     background: orange;
     width: 0;
+}
+
+.progress .progress-bar-danger {
+    background-color: #e74c3c;
 }

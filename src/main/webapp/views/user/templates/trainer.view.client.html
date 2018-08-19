@@ -1,0 +1,135 @@
+<div ng-include="'views/includes/header.view.client.html'"></div>
+
+<div class="wrapper userProfile container profile-page">
+    <div id="loading">
+        <div id="profile" style="width: 300px;">
+            <img src="../../../img/profile-ash-loading.png" alt="Pokeball">
+            <h3>Loading Trainer Profile.....</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="userDetails col-sm-12 col-xs-12">
+            <h1>{{model.user.firstName}}</h1>
+            <h3>Coins: {{model.user.coins}}</h3>
+            <h3>Points: {{model.user.points}}</h3>
+            <h3>Berries: {{model.user.berries}}</h3>
+            <h3>Potion: {{model.user.potion}}</h3>
+        </div>
+    </div>
+    <div class="row userDetails">
+        <div class="form-group col-sm-4 col-xs-12">
+            <button class="btn btn-success" ng-click="model.update()">Update Profile</button>
+        </div>
+        <div class="form-group col-sm-4 col-xs-12">
+            <a class="btn btn-warning" href="#!/trainer/{{model.user.id}}/order">
+                Order Items
+            </a>
+        </div>
+        <div class="form-group col-sm-4 col-xs-12">
+            <a class="btn btn-primary" href="#!/trainer/{{model.user.id}}/gym-leader">
+                Start Gym Fight
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<hr class="separator">
+
+<div class="container">
+    <div class="userLikes col-md-12">
+        <h1>Pokémons</h1>
+
+        <div class="row">
+            <div ng-repeat="pet in model.user.pets" class="col-sm-3 col-md-4">
+                <div class="thumbnail">
+                    <a ng-click="model.getMoreInfo(pet.pokedex_no)">
+                        <img ng-src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/{{model.padToThree(pet.pokedex_no)}}.png"
+                             style="height: 320px; width: 100%; display: block">
+                    </a>
+                    <div class="caption">
+                        <h3>Name: {{pet.name}}</h3>
+                        <h3>Pokedex: {{pet.pokedex_no}}</h3>
+                        <h3>Experience: {{pet.experience}}</h3>
+                        <h3>Level: {{pet.level}}</h3>
+                        <h3>Is Primary: {{pet.is_primary}}</h3>
+
+                        <!-- Single button -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Update <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <button class="btn btn-default"
+                                            ng-click="model.makePrimary(pet.id)">
+                                        Make Primary
+                                    </button>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <button class="btn btn-default"
+                                            ng-click="model.applyPotion(pet)">
+                                        Apply Potion
+                                    </button>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <button class="btn btn-default"
+                                            ng-click="model.feedBerries(pet)">
+                                        Feed Berries
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="model.error" class="alert alert-danger" role="alert">
+            {{model.error}}
+        </div>
+        <div ng-show="model.success" class="alert" role="alert">
+            {{model.success}}
+        </div>
+
+    </div>
+</div>
+
+<hr class="separator">
+
+<div id="leaderboard" class="text-center">
+    <div class="container">
+        <div class="section-title center">
+            <h2>Battle Statistics</h2>
+            <hr>
+            <p>See how your quest is going!</p>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <ul class="list-group">
+                    <li class="list-group-item leaderboard-line" style="background:gray">
+                        <div class="row">
+                            <div class="col-xs-4">Opposition</div>
+                            <div class="col-xs-4">Result</div>
+                            <div class="col-xs-4">Date</div>
+                        </div>
+                    </li>
+                    <li class="list-group-item leaderboard-line"
+                        ng-repeat="battle in model.user.battles">
+                        <div class="row">
+                            <div class="col-xs-4">{{battle.gymLeader.username}}
+                            </div>
+                            <div class="col-xs-4">{{battle.trainerWon ? "Won" : "Lost"}}</div>
+                            <div class="col-xs-4">{{battle.createdDate | date : format : 'mediumDate'}}</div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

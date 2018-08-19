@@ -1,7 +1,6 @@
 package edu.northeastern.cs5200.item;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import edu.northeastern.cs5200.order.Order;
 import edu.northeastern.cs5200.orderDetail.OrderDetail;
 import edu.northeastern.cs5200.util.ItemType;
 
@@ -24,6 +23,8 @@ public class Item {
     @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<OrderDetail> orderDetails = new ArrayList<>();
+    @Transient
+    private Integer quantity = 0;
 
     public Long getId() {
         return id;
@@ -93,5 +94,13 @@ public class Item {
     public void removeOrderDetail(OrderDetail orderDetail) {
         orderDetails.remove(orderDetail);
         orderDetail.setItem(null);
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 }

@@ -46,4 +46,17 @@ public class PetController {
         return petService.findPetOwner(petId);
     }
 
+    @PutMapping("/api/person/{personId}/pet/{petId}")
+    public Pet updatePetWithPerson(@PathVariable("petId") Long petId,
+                                   @PathVariable("personId") Long personId,
+                                   @RequestBody Pet newPet) throws Exception {
+        return petService.updatePetWithPerson(petId, personId, newPet);
+    }
+
+    @PostMapping("/api/person/{personId}6" +
+            "/pet")
+    public Person createPetForPerson(@PathVariable("personId") Long personId, @RequestBody Pet pet) {
+        return petService.createPetForPerson(personId, pet);
+    }
+
 }

@@ -54,7 +54,7 @@
             {{model.error}}
         </div>
         <div ng-show="registerForm.$submitted && registerForm.password.$valid &&
-                 registerForm['conf-password'].$valid && (registerForm['password'] !== registerForm['conf-password'])"
+                 registerForm['conf-password'].$valid && (registerForm['password'].value !== registerForm['conf-password'].value)"
              class="alert alert-danger" role="alert">
             Password and Conf. Password are different!
         </div>

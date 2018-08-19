@@ -27,7 +27,7 @@
                             $location.url('/admin');
                         } else if (loggedInUser.role === 'Trainer') {
                             // to trainer
-                            $location.url('/gym/' + loggedInUser.id);
+                            $location.url('/trainer/' + loggedInUser.id);
                         } else {
                             $location.url('/gym-leader/' + loggedInUser.id);
                         }

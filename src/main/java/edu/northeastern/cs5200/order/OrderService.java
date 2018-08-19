@@ -1,5 +1,7 @@
 package edu.northeastern.cs5200.order;
 
+import edu.northeastern.cs5200.item.Item;
+import edu.northeastern.cs5200.item.ItemService;
 import edu.northeastern.cs5200.orderDetail.OrderDetail;
 import edu.northeastern.cs5200.orderDetail.OrderDetailRepository;
 import edu.northeastern.cs5200.person.trainer.Trainer;
@@ -13,11 +15,15 @@ import java.util.Optional;
 public class OrderService {
     private final OrderRepository orderRepository;
     private final OrderDetailRepository orderDetailRepository;
+    private final ItemService itemService;
 
     @Autowired
-    public OrderService(OrderRepository orderRepository, OrderDetailRepository orderDetailRepository) {
+    public OrderService(OrderRepository orderRepository,
+                        OrderDetailRepository orderDetailRepository,
+                        ItemService itemService) {
         this.orderRepository = orderRepository;
         this.orderDetailRepository = orderDetailRepository;
+        this.itemService = itemService;
     }
 
     Order createOrder(Order order) {
@@ -66,5 +72,23 @@ public class OrderService {
     public Iterable<OrderDetail> findOrderDetails(Long orderId) {
         Order order = findOrderById(orderId);
         return order.getOrderDetails();
+    }
+
+    public Order createOrderFromBundle(List<Item> items) {
+        Order order = new Order();
+        order = orderRepository.save(order);
+        Double cost = 0.0;
+
+        for (Item item : items) {
+            OrderDetail orderDetail = new OrderDetail();
+            orderDetail.setQuantity(item.getQuantity());
+            orderDetail = orderDetailRepository.save(orderDetail);
+            itemService.addOrderDetails(item.getId(), orderDetail.getId());
+            addOrderDetails(order.getId(), orderDetail.getId());
+            cost += item.getQuantity() * item.getPrice();
+        }
+        order.setCost(cost);
+        order = orderRepository.save(order);
+        return order;
     }
 }
